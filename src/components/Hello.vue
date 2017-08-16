@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-       {{user.input1}}
+
       <!--This is important for using router-link-->
       <router-link to="/Landing">Landing</router-link>
       <div>
