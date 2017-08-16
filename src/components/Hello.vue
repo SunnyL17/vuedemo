@@ -19,7 +19,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Sucessfully install the vue111',
+      msg: 'Sucessfully install the vue',
       Info:{
         input1:'',
         input2:''
