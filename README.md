@@ -1,6 +1,8 @@
 # vuedemo
 
 > A Vue.js project
+> This is the first project that I would like to show people who are new to vue to learn about the 'State Management'
+
 
 ## Build Setup
 
