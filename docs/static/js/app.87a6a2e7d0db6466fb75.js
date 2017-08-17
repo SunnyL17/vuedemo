@@ -137,7 +137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'hello',
   data() {
     return {
-      msg: 'Sucessfully install the vue111',
+      msg: 'Sucessfully install the vue',
       Info: {
         input1: '',
         input2: ''
@@ -389,7 +389,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "hello"
-  }, [_c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v("Essential Links")]), _vm._v("\n     " + _vm._s(_vm.user.input1) + "\n    "), _vm._v(" "), _c('router-link', {
+  }, [_c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v("Essential Links")]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": "/Landing"
     }
@@ -431,4 +431,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[10]);
-//# sourceMappingURL=app.b60ec99119f373d3a3e0.js.map
+//# sourceMappingURL=app.87a6a2e7d0db6466fb75.js.map
