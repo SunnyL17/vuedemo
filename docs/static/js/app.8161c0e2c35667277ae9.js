@@ -137,7 +137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'hello',
   data() {
     return {
-      msg: 'Sucessfully install the vue111',
+      msg: 'Just change gh-pages',
       Info: {
         input1: '',
         input2: ''
@@ -431,4 +431,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[10]);
-//# sourceMappingURL=app.b60ec99119f373d3a3e0.js.map
+//# sourceMappingURL=app.8161c0e2c35667277ae9.js.map
