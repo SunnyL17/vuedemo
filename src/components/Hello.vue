@@ -29,7 +29,7 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Want to see if it works',
+      msg: 'Want to see changes!',
       imageSrc:undefined,
       imageData:undefined,
       Info:{
