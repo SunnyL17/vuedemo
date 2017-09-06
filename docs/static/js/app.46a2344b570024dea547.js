@@ -17,12 +17,14 @@ const state = {
         Info: {
             input1: '',
             input2: ''
-        }
+        },
+        imageSrc: ''
     }
 };
 const mutations = {
     ShareInfo(state, user) {
         state.user.input1 = user.input1;
+        state.user.imageSrc = user.imageSrc;
     }
 };
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
@@ -132,12 +134,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'hello',
   data() {
     return {
-      msg: 'Sucessfully install the vue111',
+      msg: 'Want to see if it works',
+      imageSrc: undefined,
+      imageData: undefined,
       Info: {
         input1: '',
         input2: ''
@@ -151,25 +165,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   mounted: function () {
-    this.Info.input1 = this.user.input1;
+
+    this.Info.input1 = this.user.input1, this.imageSrc = this.user.imageSrc;
   },
   methods: {
     Preview() {
 
       this.$store.commit('ShareInfo', {
-        input1: this.Info.input1
-
+        input1: this.Info.input1,
+        imageSrc: this.imageSrc
       });
-
       this.$router.push({ path: '/Landing' });
     },
     computed: {
       user() {
         return this.$store.state.user;
       }
-    }
+    },
+    previewThumbnail: function (event) {
+      var input = event.target;
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        var vm = this;
+        reader.onload = function (e) {
+          vm.imageSrc = e.target.result;
+          vm.imageData = input.files[0];
+          console.log(vm.imageData);
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
+    filesChange(fileList) {
 
+      if (!fileList.length) return;
+      this.image = fileList[0];
+      console.log(this.image);
+    }
   }
+
 });
 
 /***/ }),
@@ -178,6 +211,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
@@ -205,8 +241,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         GoBack() {
             this.$store.commit('ShareInfo', {
-                input1: this.user.input1
-
+                input1: this.user.input1,
+                imageSrc: this.user.imageSrc
             });
             this.$router.push({ path: '/' });
         }
@@ -359,7 +395,11 @@ module.exports = Component.exports
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', [_vm._v("This is Landing Page")]), _vm._v("\n    " + _vm._s(_vm.user.input1) + "\n   "), _c('div', [_c('button', {
+  return _c('div', [_c('p', [_vm._v("This is Landing Page")]), _vm._v("\n    " + _vm._s(_vm.user.input1) + "\n    "), _c('figure', [_c('img', {
+    attrs: {
+      "src": _vm.user.imageSrc
+    }
+  })]), _vm._v(" "), _c('div', [_c('button', {
     on: {
       "click": _vm.GoBack
     }
@@ -389,11 +429,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "hello"
-  }, [_c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v("Essential Links")]), _vm._v("\n     " + _vm._s(_vm.user.input1) + "\n    "), _vm._v(" "), _c('router-link', {
+  }, [_c('h1', [_vm._v(_vm._s(_vm.msg))]), _vm._v(" "), _c('h2', [_vm._v("Essential Links")]), _vm._v(" "), _vm._m(0), _vm._v("\n     " + _vm._s(_vm.user.input1) + "\n    "), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": "/Landing"
     }
-  }, [_vm._v("Landing")]), _vm._v(" "), _c('div', [_c('form', [_c('input', {
+  }, [_vm._v("Landing")]), _vm._v(" "), _c('div', [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -403,7 +443,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "text",
       "maxlength": "30",
-      "required": "required"
+      "required": ""
     },
     domProps: {
       "value": (_vm.Info.input1)
@@ -414,12 +454,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.Info.input1 = $event.target.value
       }
     }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "file",
+      "name": "image",
+      "accept": "image/*"
+    },
+    on: {
+      "change": [function($event) {
+        _vm.filesChange($event.target.files)
+      }, _vm.previewThumbnail]
+    }
+  }), _vm._v(" "), _c('figure', [_c('img', {
+    attrs: {
+      "src": _vm.imageSrc
+    }
   })])]), _vm._v(" "), _c('button', {
     on: {
       "click": _vm.Preview
     }
   }, [_vm._v("Submit")])], 1)
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', [_c('i', {
+    staticClass: "fa fa-camera-retro fa-5x"
+  }), _vm._v(" "), _c('i', {
+    staticClass: "fa fa-facebook-square fa-5x",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  })])
+}]}
 
 /***/ }),
 /* 22 */
@@ -431,4 +495,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[10]);
-//# sourceMappingURL=app.b60ec99119f373d3a3e0.js.map
+//# sourceMappingURL=app.46a2344b570024dea547.js.map
