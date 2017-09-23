@@ -149,7 +149,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'hello',
   data() {
     return {
-      msg: 'Want to see if it works',
+      msg: 'My new app is coming out! ...:) Just be patient',
       imageSrc: undefined,
       imageData: undefined,
       Info: {
@@ -495,4 +495,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ],[10]);
-//# sourceMappingURL=app.46a2344b570024dea547.js.map
+//# sourceMappingURL=app.7891da2c0adcb77f95ee.js.map
